@@ -1,7 +1,6 @@
 # publish-to-dev-to
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/abr4xas/publish-to-dev-to.svg?style=flat-square)](https://packagist.org/packages/abr4xas/publish-to-dev-to)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/abr4xas/publish-to-dev-to/Tests?label=tests)](https://github.com/abr4xas/publish-to-dev-to/actions?query=workflow%3ATests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/abr4xas/publish-to-dev-to.svg?style=flat-square)](https://packagist.org/packages/abr4xas/publish-to-dev-to)
 
 
