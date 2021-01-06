@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace Abr4xas\PublishToDevTo\Tests;
 
 use PHPUnit\Framework\TestCase;
 

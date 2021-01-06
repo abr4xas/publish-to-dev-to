@@ -1,40 +1,57 @@
-# :package_description
+# publish-to-dev-to
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_name/:package_name.svg?style=flat-square)](https://packagist.org/packages/:vendor_name/:package_name)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/:vendor_name/:package_name/Tests?label=tests)](https://github.com/:vendor_name/:package_name/actions?query=workflow%3ATests+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_name/:package_name.svg?style=flat-square)](https://packagist.org/packages/:vendor_name/:package_name)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/abr4xas/publish-to-dev-to.svg?style=flat-square)](https://packagist.org/packages/abr4xas/publish-to-dev-to)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/abr4xas/publish-to-dev-to/Tests?label=tests)](https://github.com/abr4xas/publish-to-dev-to/actions?query=workflow%3ATests+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/abr4xas/publish-to-dev-to.svg?style=flat-square)](https://packagist.org/packages/abr4xas/publish-to-dev-to)
 
-**Note:** Run `./configure-skeleton` to get started, or manually replace ```:author_name``` ```:author_username``` ```:author_email``` ```:vendor_name``` ```:package_name``` ```:package_description``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](.github/CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. 
 
 This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/package-skeleton-php.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/package-skeleton-php)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require :vendor_name/:package_name
+composer require abr4xas/publish-to-dev-to
 ```
 
-## Usage
+## To create an article you need to pass an array like this:
 
 ```php
-$skeleton = new Spatie\Skeleton();
-echo $skeleton->echoPhrase('Hello, Spatie!');
+<?php
+require 'vendor/autoload.php';
+
+$articleToPost = [
+    'article' => [
+        'title' => 'Hello, World! From the dev.to API',
+        'body_markdown' => 'This my markdown body text',
+        'description' => 'Hello, World! From the dev.to API <3',
+        'cover_image' => 'https://i.pinimg.com/originals/97/90/12/979012800b47e3bb871cae4009333e08.jpg',
+        'tags' => [
+            'hello',
+            'world'
+        ],
+    ],
+];
+
+try {
+
+    $devTo = (new \Abr4xas\PublishToDevTo\PublishTo('<YOUR_API_KEY>'))
+        ->devToMyArticle($articleToPost);
+
+} catch (\Abr4xas\PublishToDevTo\Exceptions\GenericException $e) {
+    //
+} catch (\GuzzleHttp\Exception\ClientException $e) {
+    //
+}
+
 ```
 
 ## Testing
 
 ```bash
-composer test
+// todo
 ```
 
 ## Changelog
@@ -45,13 +62,10 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [angel cruz](https://github.com/abr4xas)
 - [All Contributors](../../contributors)
 
 ## License
